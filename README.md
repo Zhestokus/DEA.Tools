@@ -43,6 +43,8 @@ it is also possible to use data compression
                 return deaProcessor;
             });
 ```
+**SetCompressionLimit** is could be used to set minimum data size (default is 1024) 
+it means thet only messages size of which is more then compression limit will be compressed.
 
 and then use it in Controller code
 ```csharp
@@ -205,7 +207,6 @@ e.g
 
 **TaskHandled** - new Task will be created for each request.
 
-**SetCompressionLimit** is used to set minimum data size (default is 1024) so only messages size of which is more then compression limit will be compressed.
 
 **NOTE:** Unfortunately some message brokers have limitations of max message size (Redis Pub/Sub **32KiB**, Kafka **1MiB**, RabbitMQ **128MiB**)
 and if size of Request or Response may be larger then max size of message of message broker which we use, then we need to use Message Store.
