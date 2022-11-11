@@ -14,7 +14,7 @@ as a result we get Load Balancing + Failover.
 How to use DEA.Tools?
 
 **on Web API side** add singleton of DeaProcessor in Program.cs or Startup.cs (in ConfigureServices method)
-```
+```csharp
             services.AddSingleton(options =>
             {
                 var redisServer = Configuration.GetValue<String>("AppSettings:RedisServer");
@@ -28,7 +28,7 @@ How to use DEA.Tools?
             });
 ```
 it is also possible to use data compression
-```
+```csharp
             services.AddSingleton(options =>
             {
                 var redisServer = Configuration.GetValue<String>("AppSettings:RedisServer");
@@ -45,7 +45,7 @@ it is also possible to use data compression
 ```
 
 and then use it in Controller code
-```
+```csharp
         private readonly DeaProcessor _deaProcessor;
 
         public ValuesController(DeaProcessor deaProcessor)
@@ -64,7 +64,7 @@ and then use it in Controller code
 ```
 
 also it is possible to add DeaEventAttribute to API method and specify event name as a parameter of attribute
-```
+```csharp
         private readonly DeaProcessor _deaProcessor;
 
         public ValuesController(DeaProcessor deaProcessor)
@@ -81,7 +81,7 @@ also it is possible to add DeaEventAttribute to API method and specify event nam
         }
 ```
 or
-```
+```csharp
         private readonly DeaProcessor _deaProcessor;
 
         public ValuesController(DeaProcessor deaProcessor)
@@ -105,7 +105,7 @@ Default event name is name of class separated using "." (dot) and name of method
 2. With Return type - should be used when we need to wait and receive result/response
 
 e.g
-```
+```csharp
         [HttpPost]
         [DeaEvent]
         public async Task<ActionResult> Post([FromBody] String value)
@@ -127,7 +127,7 @@ e.g
 ```
 
 **on Console Application side** define single instance of DeaConnector and map events
-```
+```csharp
         static void Main(string[] args)
         {
             var redisServer = "localhost:6379";
@@ -153,7 +153,7 @@ e.g
         }
 ```
 also it is possible to create event handler class (like Controller class in Web API)
-```
+```csharp
     class Program
     {
         static void Main(string[] args)
@@ -193,7 +193,7 @@ also it is possible to create event handler class (like Controller class in Web 
 
 also it is possible to specify threading mode on Console Application side (SingleThread, MultiThread, ThreadPool, TaskHandled)
 e.g
-```
+```csharp
             var connector = new DeaConnector()
                                 .UseRedisHandler(redisServer)
                                 .UseRedisStore(redisServer)
@@ -213,7 +213,7 @@ e.g
 **NOTE:** Unfortunately some message brokers have limitations of max message size (Redis Pub/Sub **32KiB**, Kafka **1MiB**, RabbitMQ **128MiB**)
 and if size of Request or Response may be larger then max size of message of message broker which we use, then we need to use Message Store.
 for that purpose (for Message Store) we can use Redis, Memcached, SQL Server, MongoDb or implement IMessageStore interface and create your own message store.
-```
+```csharp
             services.AddSingleton(options =>
             {
                 var redisServer = Configuration.GetValue<String>("AppSettings:RedisServer");
@@ -241,7 +241,7 @@ also it is possible to implement IMessageHandler, IDataSerializer, IDataCompress
 and then use those classes directly
 
 e.g
-```
+```csharp
             var processor = new DeaProcessor()
                                 .UseHandler(() => new RedisMessageHandler(redisServer))
                                 .UseStore(() => new RedisMessageStore(redisServer))
