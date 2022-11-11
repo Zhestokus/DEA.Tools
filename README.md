@@ -139,7 +139,7 @@ e.g
                                 .UseRedisStore(redisServer)
                                 .UseGZipCompression()
                                 .UseNewtonsoftJsonSerializer()
-                                .MapEventHandler("Get", getMethod)
+                                .MapEventHandler("ValuesController.Get", getMethod)
                                 .Connect();
 
             Console.WriteLine("Server running...");
