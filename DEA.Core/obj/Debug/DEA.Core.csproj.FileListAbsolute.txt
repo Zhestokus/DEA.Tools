@@ -1,0 +1,6 @@
+C:\Users\VAZHIKA\source\repos\DEA.Tools\DEA.Core\bin\Debug\DEA.Core.dll
+C:\Users\VAZHIKA\source\repos\DEA.Tools\DEA.Core\bin\Debug\DEA.Core.pdb
+C:\Users\VAZHIKA\source\repos\DEA.Tools\DEA.Core\obj\Debug\DEA.Core.csprojAssemblyReference.cache
+C:\Users\VAZHIKA\source\repos\DEA.Tools\DEA.Core\obj\Debug\DEA.Core.csproj.CoreCompileInputs.cache
+C:\Users\VAZHIKA\source\repos\DEA.Tools\DEA.Core\obj\Debug\DEA.Core.dll
+C:\Users\VAZHIKA\source\repos\DEA.Tools\DEA.Core\obj\Debug\DEA.Core.pdb
