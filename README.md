@@ -171,12 +171,6 @@ also it is possible to create event handler class (like Controller class in Web 
             Console.WriteLine("Server running...");
             Console.ReadLine();
         }
-
-        static String Get(String eventName, int id)
-        {
-            Console.WriteLine($"Request from {eventName}");
-            return "Hello";
-        }
     }
 
     class EventController
@@ -204,8 +198,11 @@ e.g
                                 .Connect();
 ```
 **SingleThread** - all requests will be handled in one thread.
-**MultiThread** - new thread will be started for each request
+
+**MultiThread** - new thread will be started for each request.
+
 **ThreadPool** - ThreadPool.QueueUserWorkItem will be called for each request.
+
 **TaskHandled** - new Task will be created for each request.
 
 **SetCompressionLimit** is used to set minimum data size (default is 1024) so only messages size of which is more then compression limit will be compressed.
