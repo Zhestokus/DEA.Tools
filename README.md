@@ -44,6 +44,7 @@ it is also possible to use data compression
             });
 ```
 **SetCompressionLimit** is could be used to set minimum data size (default is 1024) 
+
 it means thet only messages size of which is more then compression limit will be compressed.
 
 and then use it in Controller code
@@ -210,7 +211,7 @@ e.g
 
 **NOTE:** Unfortunately some message brokers have limitations of max message size (Redis Pub/Sub **32KiB**, Kafka **1MiB**, RabbitMQ **128MiB**)
 and if size of Request or Response may be larger then max size of message of message broker which we use, then we need to use Message Store.
-for that purpose (for Message Store) we can use Redis, Memcached, SQL Server, MongoDb or implement IMessageStore interface and create your own message store.
+for that purpose (for Message Store) we can use Redis, Memcached, SQL Server, MongoDb, Minio or implement IMessageStore interface and create your own message store.
 ```csharp
             services.AddSingleton(options =>
             {
