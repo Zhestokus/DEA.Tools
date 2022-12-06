@@ -3,6 +3,7 @@
 Distributed Event Architecture
 
 DEA is tools library which allows to develope Failover and Load Balanced application. (.NET Alternative of Python Celery)
+
 How it works?
 
 Let's imagine we have one Web API application which is load balanced using web server (IIS web farm or web garden)
