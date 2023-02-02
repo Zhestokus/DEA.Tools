@@ -27,7 +27,7 @@ How to use DEA.Tools?
                 return deaProcessor;
             });
 ```
-it is also possible to use data compression
+also it is possible to use data compression
 ```csharp
             services.AddSingleton(options =>
             {
@@ -43,9 +43,8 @@ it is also possible to use data compression
                 return deaProcessor;
             });
 ```
-**SetCompressionLimit** is could be used to set minimum data size (default is 1024) 
-
-it means thet only messages size of which is more then compression limit will be compressed.
+**SetCompressionLimit** could be used to set minimum data size (default is 1024) 
+it means that only messages size of which is more then compression limit will be compressed.
 
 and then use it in Controller code
 ```csharp
